@@ -86,5 +86,6 @@ Data Source
 Sequences were obtained from the National Center for Biotechnology Information database.
 
 Author
+
 Maham Taqi
 
