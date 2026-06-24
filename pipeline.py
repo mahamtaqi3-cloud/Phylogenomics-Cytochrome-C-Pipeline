@@ -9,7 +9,7 @@ def run_bioinformatics_pipeline(input_fasta, output_align_fas):
     
     # PHASE 1: Raw Data Verification
     if not os.path.exists(input_fasta):
-        print(f"❌ Error: {input_fasta} nahi mili! File path check karein.")
+        print(f"❌ Error: {input_fasta} not found! Check the file path.")
         return
         
     raw_seqs = list(SeqIO.parse(input_fasta, "fasta"))
@@ -19,8 +19,8 @@ def run_bioinformatics_pipeline(input_fasta, output_align_fas):
     # PHASE 2: Automated Alignment
     print("\n🖥️ Phase 2: Running Automated ClustalW Alignment...")
     try:
-        # Note: Background mein ClustalW chalanay ke liye system par clustalw2 installed hona chahiye.
-        # Agar aap local software se exported file use kar rahi hain, to yeh step hum skip bhi kar sakte hain.
+        # Note: To run ClustalW in the background, ClustalW2 must be installed on the system.
+        # If you are using a file exported from local software, then we can skip this step as well.
         print("   -> Processing alignments and balancing sequence lengths...")
     except Exception as e:
         print(f"   -> Alignment Warning: {e}")
@@ -50,7 +50,7 @@ def run_bioinformatics_pipeline(input_fasta, output_align_fas):
 
 # Pipeline executing triggers
 if __name__ == "__main__":
-    # Apni files ke paths check karein
+    # Check the paths of your files.
     INPUT_FILE = "cytochrome_c_sequences.fasta"
     ALIGNED_FILE = "alignment.fas" 
     
